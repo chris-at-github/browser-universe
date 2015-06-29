@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', array(
+	'as'   => 'universe.index',
+	'uses' => 'MapsController@index'
+));
