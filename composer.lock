@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c6026b96e6fa11a641b51a6ba976f5e",
+    "hash": "3571431b98380fe064c00323f0fd8845",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2558,6 +2558,46 @@
             "time": "2015-06-11 15:55:48"
         },
         {
+            "name": "qinx/universe",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chris-at-github/browser-universe-package.git",
+                "reference": "68fd21d04ba2e92c51401634f4ebc9787ca44294"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chris-at-github/browser-universe-package/zipball/68fd21d04ba2e92c51401634f4ebc9787ca44294",
+                "reference": "68fd21d04ba2e92c51401634f4ebc9787ca44294",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Universe\\": "src/Universe/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Pschorr",
+                    "email": "pschorr.christian@gmail.com"
+                }
+            ],
+            "description": "simple x4 browser game",
+            "support": {
+                "source": "https://github.com/chris-at-github/browser-universe-package/tree/master",
+                "issues": "https://github.com/chris-at-github/browser-universe-package/issues"
+            },
+            "time": "2015-06-29 20:47:46"
+        },
+        {
             "name": "sebastian/comparator",
             "version": "1.1.1",
             "source": {
@@ -2980,7 +3020,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "qinx/universe": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
