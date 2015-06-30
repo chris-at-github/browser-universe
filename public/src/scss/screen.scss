@@ -1,0 +1,77 @@
+// @import '_bootstrap.scss';
+@import '_variables.scss';
+@import '_mixins.scss';
+
+// ----------------------------------------------------------------------------------
+* {
+  @include box-sizing(border-box);
+}
+
+*:before, *:after {
+  @include box-sizing(border-box);
+}
+
+body {
+  margin: 10px;
+  background: #f8f8f8;
+  font: normal normal 16px/1.4 'Times New Roman';
+}
+
+header {
+  font-weight: bold;
+}
+
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+// ----------------------------------------------------------------------------------
+// Grid
+.row {
+  @include make-row;
+}
+
+@include make-grid-columns;
+@include make-grid(xs);
+
+// ----------------------------------------------------------------------------------
+// Forms
+input[type='text'], textarea, select {
+  & {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid $gray-light;
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-appearance: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.disabled {
+    background: $gray-lighter;
+  }
+}
+
+.form-item {
+  margin: 0 0 10px 0;
+}
+
+.form-item .form-item {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+}
+
+.form-field {
+  position: relative;
+}
