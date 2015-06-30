@@ -144,6 +144,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+				/*
+				 * Universe Service Providers
+				 */
+				'Universe\Providers\ViewServiceProvider',
+				'Universe\Providers\ConfigServiceProvider',
+
 		),
 
     /*
