@@ -13,5 +13,5 @@
 
 Route::get('/', array(
 	'as'   => 'universe.index',
-	'uses' => 'MapsController@index'
+	'uses' => 'GameController@index'
 ));

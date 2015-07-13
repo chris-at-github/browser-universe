@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'de',
 
     /*
     |--------------------------------------------------------------------------
@@ -149,6 +149,9 @@ return [
 				 */
 				'Universe\Providers\ViewServiceProvider',
 				'Universe\Providers\ConfigServiceProvider',
+				'Universe\Providers\TranslationServiceProvider',
+
+//				'Illuminate\Html\HtmlServiceProvider',
 
 		),
 
