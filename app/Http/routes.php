@@ -15,3 +15,8 @@ Route::get('/', array(
 	'as'   => 'universe.index',
 	'uses' => 'GameController@index'
 ));
+
+Route::get('/game/create', array(
+	'as'   => 'game.create',
+	'uses' => 'GameController@create'
+));

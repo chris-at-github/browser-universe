@@ -2552,12 +2552,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chris-at-github/browser-universe-package.git",
-                "reference": "6bd3ab001bb72498c8386fffaae6c0c5ed496465"
+                "reference": "ba9565d0861869fc76d66994eb31cfb322d3b211"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chris-at-github/browser-universe-package/zipball/6bd3ab001bb72498c8386fffaae6c0c5ed496465",
-                "reference": "6bd3ab001bb72498c8386fffaae6c0c5ed496465",
+                "url": "https://api.github.com/repos/chris-at-github/browser-universe-package/zipball/ba9565d0861869fc76d66994eb31cfb322d3b211",
+                "reference": "ba9565d0861869fc76d66994eb31cfb322d3b211",
                 "shasum": ""
             },
             "require": {
@@ -2584,7 +2584,7 @@
                 "source": "https://github.com/chris-at-github/browser-universe-package/tree/master",
                 "issues": "https://github.com/chris-at-github/browser-universe-package/issues"
             },
-            "time": "2015-07-03 05:32:02"
+            "time": "2015-07-13 08:25:52"
         },
         {
             "name": "sebastian/comparator",
