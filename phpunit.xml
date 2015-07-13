@@ -10,8 +10,11 @@
          stopOnFailure="false"
          syntaxCheck="false">
     <testsuites>
-        <testsuite name="Application Test Suite">
-            <directory>./tests/</directory>
+        <!--<testsuite name="Application Test Suite">-->
+            <!--<directory>./tests/</directory>-->
+        <!--</testsuite>-->
+        <testsuite name="Universe Package Test Suite">
+            <directory>./vendor/qinx/universe/src/Universe/Tests/</directory>
         </testsuite>
     </testsuites>
     <filter>
