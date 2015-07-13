@@ -151,7 +151,7 @@ return [
 				'Universe\Providers\ConfigServiceProvider',
 				'Universe\Providers\TranslationServiceProvider',
 
-//				'Illuminate\Html\HtmlServiceProvider',
+				'Illuminate\Html\HtmlServiceProvider',
 
 		),
 

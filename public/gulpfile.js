@@ -19,6 +19,8 @@ var sass				= require('gulp-sass');
 var autoprefix	= require('gulp-autoprefixer');
 var minifyCSS		= require('gulp-minify-css');
 
+var phpunit = require('gulp-phpunit');
+
 //// minify new images
 //gulp.task('imagemin', function() {
 //	var imageSource	= './src/images/**/*',
@@ -48,6 +50,11 @@ gulp.task('styles', function() {
 		.pipe(autoprefix('last 2 versions'))
 		// .pipe(minifyCSS())
 		.pipe(gulp.dest('./css/'));
+});
+
+// option 1: default format
+gulp.task('phpunit', function() {
+	gulp.src('../phpunit.xml').pipe(phpunit('..\\vendor\\bin\\phpunit'));
 });
 
 // default gulp task

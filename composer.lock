@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "642d4dad012efc2c325a4c2286cb87f4",
+    "hash": "b2d485fd03cfddc8c3641ddb227c42bc",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2552,12 +2552,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chris-at-github/browser-universe-package.git",
-                "reference": "ba9565d0861869fc76d66994eb31cfb322d3b211"
+                "reference": "f0dad18319a7696c0fcc87434566cfb365fad9dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chris-at-github/browser-universe-package/zipball/ba9565d0861869fc76d66994eb31cfb322d3b211",
-                "reference": "ba9565d0861869fc76d66994eb31cfb322d3b211",
+                "url": "https://api.github.com/repos/chris-at-github/browser-universe-package/zipball/f0dad18319a7696c0fcc87434566cfb365fad9dc",
+                "reference": "f0dad18319a7696c0fcc87434566cfb365fad9dc",
                 "shasum": ""
             },
             "require": {
@@ -2584,7 +2584,7 @@
                 "source": "https://github.com/chris-at-github/browser-universe-package/tree/master",
                 "issues": "https://github.com/chris-at-github/browser-universe-package/issues"
             },
-            "time": "2015-07-13 08:25:52"
+            "time": "2015-07-13 08:38:37"
         },
         {
             "name": "sebastian/comparator",
