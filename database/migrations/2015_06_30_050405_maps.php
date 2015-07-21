@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMaps extends Migration {
+class Maps extends Migration {
 	/**
 	 * Run the migrations.
 	 *
@@ -12,8 +12,12 @@ class CreateMaps extends Migration {
 	public function up() {
 		Schema::create('maps', function (Blueprint $table) {
 			$table->increments('id');
-			$table->string('name')->nullable();
 			$table->timestamps();
+			$table->softDeletes();
+		});
+
+		Schema::table('maps', function (Blueprint $table) {
+			$table->string('name')->nullable();
 		});
 	}
 
