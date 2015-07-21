@@ -25,8 +25,20 @@ input, textarea, select, button {
   font-size: inherit;
 }
 
+p, table, dl {
+	margin: 0 0 10px 0;
+}
+
 a {
   text-decoration: none;
+}
+
+fieldset {
+	border: 1px solid $grey-lighter;
+}
+
+legend {
+	font-weight: bold;
 }
 
 // ----------------------------------------------------------------------------------
@@ -45,9 +57,7 @@ input[type='text'], textarea, select {
   & {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid $gray-light;
-    font-family: inherit;
-    font-size: inherit;
+    border: 1px solid $grey-light;
     -webkit-appearance: none;
   }
 
@@ -56,7 +66,7 @@ input[type='text'], textarea, select {
   }
 
   &.disabled {
-    background: $gray-lighter;
+    background: $grey-lighter;
   }
 }
 
@@ -74,4 +84,102 @@ input[type='text'], textarea, select {
 
 .form-field {
   position: relative;
+}
+
+// ----------------------------------------------------------------------------------
+// Buttons
+input[type='submit'], button, .button {
+	& {
+		padding: 4px 8px;
+		border: 0;
+		background: $grey-lighter;
+		-webkit-appearance: none;
+	}
+
+	&:hover {
+		background: $grey;
+	}
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+.button-large {
+	padding: 7px 20px;
+	font-size: 18px;
+}
+
+// ----------------------------------------------------------------------------------
+// Dl
+.dl-inline {
+	dt {
+		float: left;
+		margin: 0 3px 0 0;
+	}
+
+	dd {
+		margin: 0 0 10px 0;
+	}
+}
+
+// ----------------------------------------------------------------------------------
+// Actions
+.list-actions {
+	& {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-align: right;
+	}
+
+	li {
+		& {
+			display: inline-block;
+			margin: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&:after {
+			height: 12px;
+			content: '';
+			display: inline-block;
+			margin: 0 5px 0 7px;
+			border-right: 1px solid $grey-lighter;
+		}
+
+		&:last-child:after {
+			display: none;
+		}
+	}
+}
+
+// ----------------------------------------------------------------------------------
+// Objects
+.list-objects {
+	& {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	& > li {
+		& {
+			margin: 0;
+			padding: 5px 0;
+			border-top: 1px solid $grey-lighter;
+		}
+
+		&:first-child {
+			padding-top: 0;
+			border: 0;
+		}
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
 }

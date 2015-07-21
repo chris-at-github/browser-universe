@@ -1,9 +1,9 @@
-$gray-base: #000 !default;
-$gray-darker: lighten($gray-base, 13.5%) !default;
-$gray-dark: lighten($gray-base, 20%) !default;
-$gray: lighten($gray-base, 33.5%) !default;
-$gray-light: lighten($gray-base, 46.7%) !default;
-$gray-lighter: lighten($gray-base, 93.5%) !default;
+$grey-base: #000 !default;
+$grey-dark: #333;
+$grey-darker: #666 !default;
+$grey: #999 !default;
+$grey-lighter: #ccc !default;
+$grey-light: #fafafa !default;
 
 
 $grid-columns: 12 !default;

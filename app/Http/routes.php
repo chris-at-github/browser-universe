@@ -16,6 +16,11 @@ Route::get('/', array(
 	'uses' => 'GameController@index'
 ));
 
+Route::get('/game/{id}', array(
+	'as'   => 'game.load',
+	'uses' => 'GameController@index'
+));
+
 Route::any('/game/create', array(
 	'as'   => 'game.create',
 	'uses' => 'GameController@create'

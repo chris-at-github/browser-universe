@@ -10,7 +10,8 @@ class GameSeeder extends Seeder {
 	 */
 	public function run() {
 		DB::table('games')->insert([
-			'name' => 'Game A0',
+			'name' 	=> 'Game A0',
+			'turn'	=> 5,
 		]);
 	}
 }
