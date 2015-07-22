@@ -17,8 +17,8 @@ Route::get('/', array(
 ));
 
 Route::get('/game/{id}', array(
-	'as'   => 'game.load',
-	'uses' => 'GameController@index'
+	'as'   => 'game.play',
+	'uses' => 'GameController@play'
 ));
 
 Route::any('/game/create', array(
