@@ -396,12 +396,21 @@ input[type='submit']:focus, button:focus, .button:focus {
   padding: 7px 20px;
   font-size: 18px; }
 
+.dl-inline:before,
+.dl-inline:after {
+  content: " ";
+  display: table; }
+
+.dl-inline:after {
+  clear: both; }
+
 .dl-inline dt {
   float: left;
   margin: 0 3px 0 0; }
 
 .dl-inline dd {
-  margin: 0 0 10px 0; }
+  float: left;
+  margin: 0 15px 0 0; }
 
 .list-actions {
   margin: 0;

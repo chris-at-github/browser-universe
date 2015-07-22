@@ -113,13 +113,18 @@ input[type='submit'], button, .button {
 // ----------------------------------------------------------------------------------
 // Dl
 .dl-inline {
+	& {
+		@include clearfix;
+	}
+
 	dt {
 		float: left;
 		margin: 0 3px 0 0;
 	}
 
 	dd {
-		margin: 0 0 10px 0;
+		float: left;
+		margin: 0 15px 0 0;
 	}
 }
 
