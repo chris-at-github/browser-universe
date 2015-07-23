@@ -18,6 +18,7 @@ class Game extends Migration {
 
 		Schema::table('games', function (Blueprint $table) {
 			$table->string('name')->nullable();
+			$table->integer('map')->nullable();
 			$table->integer('turn');
 		});
 	}
