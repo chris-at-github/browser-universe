@@ -20,7 +20,6 @@ class Planets extends Migration {
 			$table->integer('map');
 			$table->integer('x');
 			$table->integer('y');
-			$table->integer('z');
 		});
 	}
 
