@@ -1396,6 +1396,48 @@ process.chdir = function (dir) {
 }).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/..\\..\\..\\node_modules\\gulp-browserify\\node_modules\\browserify\\node_modules\\process\\browser.js","/..\\..\\..\\node_modules\\gulp-browserify\\node_modules\\browserify\\node_modules\\process")
 },{"buffer":1,"htZkx4":4}],5:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
-console.log('Hello Universe');
-}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_be977471.js","/")
-},{"buffer":1,"htZkx4":4}]},{},[5])
+'use strict';
+
+function PlanetListingView(element, options) {
+	this.container = null;
+	this.options = $.extend({}, PlanetListingView.DEFAULTS, options);
+	this.x = 0;
+	this.y = 0;
+
+	var instance = this;
+	var initialize = function() {
+		////	instance.container
+		////		.on('mouseenter', $.proxy(instance.on, instance))
+		////		.on('mouseout', $.proxy(instance.off, instance))
+		////		.on('click', $.proxy(instance.activate, instance));
+		//}
+		//
+		//if(element !== undefined) {
+		//	this.container = $(element);
+		//}
+
+		instance.container.find('.list-object-selectable-checkbox > input').each(function() {
+			var checkbox = $(this);
+			console.log(checkbox);
+		});
+	}
+
+	if(element !== undefined) {
+		this.container = $(element);
+	}
+
+	initialize();
+}
+
+PlanetListingView.DEFAULTS = {
+
+}
+
+module.exports = PlanetListingView;
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/Views\\Planet\\Listing.js","/Views\\Planet")
+},{"buffer":1,"htZkx4":4}],6:[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+var PlanetListingView = require('./Views/Planet/Listing.js');
+new PlanetListingView($('#planet-listing'));
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b566fdf2.js","/")
+},{"./Views/Planet/Listing.js":5,"buffer":1,"htZkx4":4}]},{},[6])
