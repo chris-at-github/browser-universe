@@ -9,7 +9,7 @@ var plumber = require('gulp-plumber');
 //var imagemin	= require('gulp-imagemin');
 
 // include js plugins
-// var browserify	= require('gulp-browserify'); optional
+var browserify	= require('gulp-browserify');
 var concat			= require('gulp-concat');
 var stripDebug	= require('gulp-strip-debug');
 var uglify			= require('gulp-uglify');
@@ -34,11 +34,20 @@ var phpunit = require('gulp-phpunit');
 
 // JS concat, strip debugging and minify
 gulp.task('scripts', function() {
-	gulp.src(['./src/js/*.js'])
+	//gulp.src(['./src/js/*.js'])
+	//	.pipe(plumber())
+	//	.pipe(concat('universe.js'))
+	//	// .pipe(stripDebug())
+	//	.pipe(uglify())
+	//	.pipe(gulp.dest('./js/'));
+
+	gulp.src('./src/js/Application.js')
 		.pipe(plumber())
+		.pipe(browserify({
+			insertGlobals: true
+		}))
+		//.pipe(uglify())
 		.pipe(concat('universe.js'))
-		// .pipe(stripDebug())
-		.pipe(uglify())
 		.pipe(gulp.dest('./js/'));
 });
 
@@ -60,7 +69,7 @@ gulp.task('phpunit', function() {
 // default gulp task
 gulp.task('default', ['scripts', 'styles'], function() {
 	// watch for JS changes
-	gulp.watch('./src/js/*.js', function() {
+	gulp.watch(['./src/js/*.js', './src/js/**/*.js'], function() {
 		gulp.run('scripts');
 	});
 
