@@ -435,19 +435,33 @@ input[type='submit']:focus, button:focus, .button:focus {
 .list-actions li:last-child:after {
   display: none; }
 
-.list-objects {
+.list-object {
   margin: 0;
   padding: 0;
   list-style: none; }
 
-.list-objects > li {
+.list-object > li {
   margin: 0;
   padding: 5px 0;
   border-top: 1px solid #ccc; }
 
-.list-objects > li:first-child {
+.list-object > li:first-child {
   padding-top: 0;
   border: 0; }
 
-.list-objects > li:last-child {
+.list-object > li:last-child {
   padding-bottom: 0; }
+
+.list-object.list-object-selectable > li {
+  position: relative;
+  padding: 5px 0 5px 35px; }
+
+.list-object.list-object-selectable .list-object-selectable-checkbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 25px;
+  padding: 5px 0 0 0;
+  background: #ccc;
+  text-align: center; }
