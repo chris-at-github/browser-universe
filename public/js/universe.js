@@ -1416,9 +1416,14 @@ function PlanetListingView(element, options) {
 		//	this.container = $(element);
 		//}
 
-		instance.container.find('.list-object-selectable-checkbox > input').each(function() {
+		instance.container.find('.list-object-selectable-checkbox > input').on('change', function() {
 			var checkbox = $(this);
-			console.log(checkbox);
+
+			if(checkbox.is(':checked') === false) {
+				instance.deactivateOne(checkbox);
+			} else {
+				instance.activateOne(checkbox);
+			}
 		});
 	}
 
@@ -1430,7 +1435,28 @@ function PlanetListingView(element, options) {
 }
 
 PlanetListingView.DEFAULTS = {
+	routes: {
+		activateOne:   '/planet/activate/',
+		deactivateOne: '/planet/deactivate/'
+	}
+}
 
+PlanetListingView.prototype.redirect = function(url) {
+	window.location.href = url;
+}
+
+PlanetListingView.prototype.activateOne = function(planet) {
+	var id	= planet.attr('value');
+	var url = this.options.routes.activateOne + id;
+
+	this.redirect(url);
+}
+
+PlanetListingView.prototype.deactivateOne = function(planet) {
+	var id = planet.attr('value');
+	var url = this.options.routes.deactivateOne + id;
+
+	this.redirect(url);
 }
 
 module.exports = PlanetListingView;
@@ -1439,5 +1465,5 @@ module.exports = PlanetListingView;
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var PlanetListingView = require('./Views/Planet/Listing.js');
 new PlanetListingView($('#planet-listing'));
-}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b566fdf2.js","/")
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_c26b253e.js","/")
 },{"./Views/Planet/Listing.js":5,"buffer":1,"htZkx4":4}]},{},[6])

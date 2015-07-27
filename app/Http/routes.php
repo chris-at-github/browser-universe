@@ -17,11 +17,21 @@ Route::get('/', array(
 ));
 
 Route::get('/game/{id}', array(
-	'as'   => 'game.play',
-	'uses' => 'GameController@play'
+	'as'   => 'game.playground',
+	'uses' => 'GameController@playground'
 ));
 
 Route::any('/game/create', array(
 	'as'   => 'game.create',
 	'uses' => 'GameController@create'
+));
+
+Route::get('/planet/activate/{id}', array(
+	'as'   => 'planet.activate',
+	'uses' => 'PlanetController@activate'
+));
+
+Route::get('/planet/deactivate/{id}', array(
+	'as'   => 'planet.deactivate',
+	'uses' => 'PlanetController@deactivate'
 ));
