@@ -441,7 +441,7 @@ input[type='submit']:focus, button:focus, .button:focus {
   list-style: none; }
 
 .list-object > li {
-  margin: 0;
+  margin: 1px 0;
   padding: 5px 0;
   border-top: 1px solid #ccc; }
 
@@ -458,7 +458,7 @@ input[type='submit']:focus, button:focus, .button:focus {
 
 .list-object.list-object-selectable .list-object-selectable-checkbox {
   position: absolute;
-  top: 0;
+  top: 1px;
   bottom: 0;
   left: 0;
   width: 25px;

@@ -35,3 +35,13 @@ Route::get('/planet/deactivate/{id}', array(
 	'as'   => 'planet.deactivate',
 	'uses' => 'PlanetController@deactivate'
 ));
+
+Route::get('/ship/activate/{id}', array(
+	'as'   => 'ship.activate',
+	'uses' => 'ShipController@activate'
+));
+
+Route::get('/ship/deactivate/{id}', array(
+	'as'   => 'ship.deactivate',
+	'uses' => 'ShipController@deactivate'
+));

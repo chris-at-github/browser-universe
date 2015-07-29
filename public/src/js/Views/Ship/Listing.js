@@ -1,8 +1,8 @@
 'use strict';
 
-function PlanetListingView(element, options) {
+function ShipListingView(element, options) {
 	this.container = null;
-	this.options = $.extend({}, PlanetListingView.DEFAULTS, options);
+	this.options = $.extend({}, ShipListingView.DEFAULTS, options);
 	this.x = 0;
 	this.y = 0;
 
@@ -26,29 +26,29 @@ function PlanetListingView(element, options) {
 	initialize();
 }
 
-PlanetListingView.DEFAULTS = {
+ShipListingView.DEFAULTS = {
 	routes: {
-		activateOne:   '/planet/activate/',
-		deactivateOne: '/planet/deactivate/'
+		activateOne:   '/ship/activate/',
+		deactivateOne: '/ship/deactivate/'
 	}
 }
 
-PlanetListingView.prototype.redirect = function(url) {
+ShipListingView.prototype.redirect = function(url) {
 	window.location.href = url;
 }
 
-PlanetListingView.prototype.activateOne = function(planet) {
-	var id	= planet.attr('value');
+ShipListingView.prototype.activateOne = function(ship) {
+	var id 	= ship.attr('value');
 	var url = this.options.routes.activateOne + id;
 
 	this.redirect(url);
 }
 
-PlanetListingView.prototype.deactivateOne = function(planet) {
-	var id = planet.attr('value');
+ShipListingView.prototype.deactivateOne = function(ship) {
+	var id 	= ship.attr('value');
 	var url = this.options.routes.deactivateOne + id;
 
 	this.redirect(url);
 }
 
-module.exports = PlanetListingView;
+module.exports = ShipListingView;

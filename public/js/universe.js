@@ -1406,16 +1406,6 @@ function PlanetListingView(element, options) {
 
 	var instance = this;
 	var initialize = function() {
-		////	instance.container
-		////		.on('mouseenter', $.proxy(instance.on, instance))
-		////		.on('mouseout', $.proxy(instance.off, instance))
-		////		.on('click', $.proxy(instance.activate, instance));
-		//}
-		//
-		//if(element !== undefined) {
-		//	this.container = $(element);
-		//}
-
 		instance.container.find('.list-object-selectable-checkbox > input').on('change', function() {
 			var checkbox = $(this);
 
@@ -1463,7 +1453,67 @@ module.exports = PlanetListingView;
 }).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/Views\\Planet\\Listing.js","/Views\\Planet")
 },{"buffer":1,"htZkx4":4}],6:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
+function ShipListingView(element, options) {
+	this.container = null;
+	this.options = $.extend({}, ShipListingView.DEFAULTS, options);
+	this.x = 0;
+	this.y = 0;
+
+	var instance = this;
+	var initialize = function() {
+		instance.container.find('.list-object-selectable-checkbox > input').on('change', function() {
+			var checkbox = $(this);
+
+			if(checkbox.is(':checked') === false) {
+				instance.deactivateOne(checkbox);
+			} else {
+				instance.activateOne(checkbox);
+			}
+		});
+	}
+
+	if(element !== undefined) {
+		this.container = $(element);
+	}
+
+	initialize();
+}
+
+ShipListingView.DEFAULTS = {
+	routes: {
+		activateOne:   '/ship/activate/',
+		deactivateOne: '/ship/deactivate/'
+	}
+}
+
+ShipListingView.prototype.redirect = function(url) {
+	window.location.href = url;
+}
+
+ShipListingView.prototype.activateOne = function(ship) {
+	var id 	= ship.attr('value');
+	var url = this.options.routes.activateOne + id;
+
+	this.redirect(url);
+}
+
+ShipListingView.prototype.deactivateOne = function(ship) {
+	var id 	= ship.attr('value');
+	var url = this.options.routes.deactivateOne + id;
+
+	this.redirect(url);
+}
+
+module.exports = ShipListingView;
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/Views\\Ship\\Listing.js","/Views\\Ship")
+},{"buffer":1,"htZkx4":4}],7:[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var PlanetListingView = require('./Views/Planet/Listing.js');
 new PlanetListingView($('#planet-listing'));
-}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_c26b253e.js","/")
-},{"./Views/Planet/Listing.js":5,"buffer":1,"htZkx4":4}]},{},[6])
+
+var ShipListingView = require('./Views/Ship/Listing.js');
+new ShipListingView($('#ship-listing'));
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_37b39064.js","/")
+},{"./Views/Planet/Listing.js":5,"./Views/Ship/Listing.js":6,"buffer":1,"htZkx4":4}]},{},[7])
