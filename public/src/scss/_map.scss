@@ -1,0 +1,45 @@
+#map {
+	position: relative;
+	padding: 20px;
+	background: gold;
+}
+
+#map-scale {
+	#map-scale-x {
+		& {
+			position: absolute;
+			top: 0;
+			left: -9px; right: 0;
+			height: 25px;
+			background: $white;
+
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 9px; right: 0;
+			border-bottom: 1px solid $grey-lighter;
+		}
+
+		.map-scale-step {
+			& {
+				position: relative;
+				width: 20px;
+				float: left;
+				line-height: 25px;
+				text-align: center;
+				color: $grey;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: 0; left: 9px;
+				height: 5px;
+				border-left: 1px solid $grey-lighter;
+			}
+		}
+	}
+}

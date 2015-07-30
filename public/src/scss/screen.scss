@@ -13,7 +13,7 @@
 body {
   margin: 10px;
   background: #f8f8f8;
-  font: normal normal 16px/1.4 'Times New Roman';
+  font: normal normal 13px/1.4 $font-default;
 }
 
 header {
@@ -37,8 +37,8 @@ fieldset {
 	border: 1px solid $grey-lighter;
 }
 
-legend {
-	font-weight: bold;
+legend, header, strong, b {
+	font-weight: 500;
 }
 
 // ----------------------------------------------------------------------------------
@@ -93,6 +93,7 @@ input[type='submit'], button, .button {
 		padding: 4px 8px;
 		border: 0;
 		background: $grey-lighter;
+		color: $grey-dark;
 		-webkit-appearance: none;
 	}
 
@@ -205,3 +206,7 @@ input[type='submit'], button, .button {
 		}
 	}
 }
+
+// ----------------------------------------------------------------------------------
+// Map
+@import '_map.scss';
