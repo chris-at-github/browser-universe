@@ -50,3 +50,7 @@ Route::get('/ship/deactivate/{id}', array(
 	'as'   => 'ship.deactivate',
 	'uses' => 'ShipController@deactivate'
 ));
+
+Route::get('/playground/dragable/', array(
+	'uses' => 'PlaygroundController@dragable'
+));

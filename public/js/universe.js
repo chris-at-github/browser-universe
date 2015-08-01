@@ -1398,6 +1398,62 @@ process.chdir = function (dir) {
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
+function Dragable(element, options) {
+	this.container 	= null;
+	this.options 		= $.extend({}, Dragable.DEFAULTS, options);
+	this.runny			= false;
+
+	var instance = this;
+	var initialize = function() {
+		element
+			.on('mousedown', function(e) {
+				var drag		= $(this).addClass('on');
+
+				var height 	= drag.outerHeight(),
+					width 		= drag.outerWidth(),
+					x 				= drag.offset().top + height - e.pageY,
+					y 				= drag.offset().left + width - e.pageX;
+
+				instance.runny = true;
+
+				drag.parents()
+					.on('mousemove', function(e) {
+						if(instance.runny === false) {
+							return;
+						}
+
+						drag.offset({
+							top:  e.pageY + y - height,
+							left: e.pageX + x - width
+						});
+
+						e.preventDefault();
+					})
+					.on('mouseup', function() {
+						drag.removeClass('on');
+						instance.runny = false;
+					});
+			})
+			.on('mouseup', function() {
+				$(this).removeClass('on');
+				instance.runny = false;
+			});
+	}
+
+	this.container = element;
+
+	initialize();
+}
+
+Dragable.DEFAULTS = {
+}
+
+module.exports = Dragable;
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/Utilities\\Dragable.js","/Utilities")
+},{"buffer":1,"htZkx4":4}],6:[function(require,module,exports){
+(function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
+'use strict';
+
 function PlanetListingView(element, options) {
 	this.container = null;
 	this.options = $.extend({}, PlanetListingView.DEFAULTS, options);
@@ -1451,7 +1507,7 @@ PlanetListingView.prototype.deactivateOne = function(planet) {
 
 module.exports = PlanetListingView;
 }).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/Views\\Planet\\Listing.js","/Views\\Planet")
-},{"buffer":1,"htZkx4":4}],6:[function(require,module,exports){
+},{"buffer":1,"htZkx4":4}],7:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
 
@@ -1508,12 +1564,15 @@ ShipListingView.prototype.deactivateOne = function(ship) {
 
 module.exports = ShipListingView;
 }).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/Views\\Ship\\Listing.js","/Views\\Ship")
-},{"buffer":1,"htZkx4":4}],7:[function(require,module,exports){
+},{"buffer":1,"htZkx4":4}],8:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var PlanetListingView = require('./Views/Planet/Listing.js');
 new PlanetListingView($('#planet-listing'));
 
 var ShipListingView = require('./Views/Ship/Listing.js');
 new ShipListingView($('#ship-listing'));
-}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b796b79d.js","/")
-},{"./Views/Planet/Listing.js":5,"./Views/Ship/Listing.js":6,"buffer":1,"htZkx4":4}]},{},[7])
+
+var Dragable = require('./Utilities/Dragable.js');
+new Dragable($('.dragable'));
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_255d8b45.js","/")
+},{"./Utilities/Dragable.js":5,"./Views/Planet/Listing.js":6,"./Views/Ship/Listing.js":7,"buffer":1,"htZkx4":4}]},{},[8])
