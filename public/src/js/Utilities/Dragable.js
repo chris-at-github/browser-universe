@@ -3,7 +3,6 @@
 function Dragable(objects, options) {
 	this.objects 	= null;
 	this.options 		= $.extend({}, Dragable.DEFAULTS, options);
-	this.absolute		= true;
 
 	var instance = this;
 	var initialize = function() {
@@ -39,8 +38,6 @@ function Dragable(objects, options) {
 						}
 					}
 
-					console.log(x);
-
 					drag.parents()
 						.on('mousemove', function(e) {
 							if(drag.hasClass('on') === false) {
@@ -57,7 +54,6 @@ function Dragable(objects, options) {
 							e.preventDefault();
 						})
 						.on('mouseup', function() {
-							//$(this).off('mousemove');
 							drag.removeClass('on');
 
 							drag.css({
