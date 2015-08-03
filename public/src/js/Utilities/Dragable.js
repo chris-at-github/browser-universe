@@ -1,48 +1,79 @@
 'use strict';
 
-function Dragable(element, options) {
-	this.container 	= null;
+function Dragable(objects, options) {
+	this.objects 	= null;
 	this.options 		= $.extend({}, Dragable.DEFAULTS, options);
-	this.runny			= false;
+	this.absolute		= true;
 
 	var instance = this;
 	var initialize = function() {
-		element
-			.on('mousedown', function(e) {
-				var drag		= $(this).addClass('on');
+		instance.objects.each(function() {
+			var drag = $(this);
 
-				var height 	= drag.outerHeight(),
-					width 		= drag.outerWidth(),
-					x 				= drag.offset().top + height - e.pageY,
-					y 				= drag.offset().left + width - e.pageX;
+			drag
+				.on('mousedown', function(e) {
+					drag.addClass('on');
 
-				instance.runny = true;
+					var x 			= drag.position().left,
+							y 			= drag.position().top,
+							zero		= {
+								x: e.pageX,
+								y: e.pageY
+							},
+							offset	= {
+								x: 0,
+								y: 0
+							};
 
-				drag.parents()
-					.on('mousemove', function(e) {
-						if(instance.runny === false) {
-							return;
+					if(drag.css('position') !== 'absolute') {
+						drag.css('position', 'relative');
+
+						var x = parseInt(drag.css('left'));
+						if(isNaN(x) === true) {
+							x = 0;
 						}
 
-						drag.offset({
-							top:  e.pageY + y - height,
-							left: e.pageX + x - width
-						});
+						var y = parseInt(drag.css('top'));
+						if(isNaN(y) === true) {
+							y = 0;
+						}
+					}
 
-						e.preventDefault();
-					})
-					.on('mouseup', function() {
-						drag.removeClass('on');
-						instance.runny = false;
-					});
-			})
-			.on('mouseup', function() {
-				$(this).removeClass('on');
-				instance.runny = false;
-			});
+					console.log(x);
+
+					drag.parents()
+						.on('mousemove', function(e) {
+							if(drag.hasClass('on') === false) {
+								return;
+							}
+
+							offset.x = e.pageX - zero.x;
+							offset.y = e.pageY - zero.y;
+
+							drag.css({
+								'transform': 'translate(' + offset.x + 'px, ' + offset.y + 'px)'
+							});
+
+							e.preventDefault();
+						})
+						.on('mouseup', function() {
+							//$(this).off('mousemove');
+							drag.removeClass('on');
+
+							drag.css({
+								'transform': 	'translate(0, 0)',
+								'top':				(y + offset.y),
+								'left':      	(x + offset.x)
+							});
+						});
+				})
+				.on('mouseup', function() {
+					$(this).removeClass('on');
+				});
+		});
 	}
 
-	this.container = element;
+	this.objects = $(objects);
 
 	initialize();
 }
