@@ -4,12 +4,18 @@ function Dragable(objects, options) {
 	this.objects 	= null;
 	this.options 		= $.extend({}, Dragable.DEFAULTS, options);
 
-	var instance = this;
+	var instance 	= this;
+	var listener	= $('body');
 	var initialize = function() {
 		instance.objects.each(function() {
-			var drag = $(this);
+			var drag 		= $(this);
+			var append	= drag;
 
-			drag
+			if(instance.options.append !== null) {
+				append = $(instance.options.append);
+			}
+
+			append
 				.on('mousedown', function(e) {
 					drag.addClass('on');
 
@@ -38,7 +44,7 @@ function Dragable(objects, options) {
 						}
 					}
 
-					drag.parents()
+					listener
 						.on('mousemove', function(e) {
 							if(drag.hasClass('on') === false) {
 								return;
@@ -46,6 +52,14 @@ function Dragable(objects, options) {
 
 							offset.x = e.pageX - zero.x;
 							offset.y = e.pageY - zero.y;
+
+							if(instance.options.axis === 'x') {
+								offset.y = 0;
+							}
+
+							if(instance.options.axis === 'y') {
+								offset.x = 0;
+							}
 
 							drag.css({
 								'transform': 'translate(' + offset.x + 'px, ' + offset.y + 'px)'
@@ -75,6 +89,8 @@ function Dragable(objects, options) {
 }
 
 Dragable.DEFAULTS = {
+	append: '#test-map',
+	axis: 'y'
 }
 
 module.exports = Dragable;

@@ -472,6 +472,14 @@ input[type='submit']:focus, button:focus, .button:focus {
   top: 100px;
   left: 100px; }
 
+#test-map {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 500px;
+  height: 500px;
+  background: gold; }
+
 .dragable {
   width: 100px;
   height: 100px;

@@ -1401,14 +1401,19 @@ process.chdir = function (dir) {
 function Dragable(objects, options) {
 	this.objects 	= null;
 	this.options 		= $.extend({}, Dragable.DEFAULTS, options);
-	this.absolute		= true;
 
-	var instance = this;
+	var instance 	= this;
+	var listener	= $('body');
 	var initialize = function() {
 		instance.objects.each(function() {
-			var drag = $(this);
+			var drag 		= $(this);
+			var append	= drag;
 
-			drag
+			if(instance.options.append !== null) {
+				append = $(instance.options.append);
+			}
+
+			append
 				.on('mousedown', function(e) {
 					drag.addClass('on');
 
@@ -1437,9 +1442,7 @@ function Dragable(objects, options) {
 						}
 					}
 
-					console.log(x);
-
-					drag.parents()
+					listener
 						.on('mousemove', function(e) {
 							if(drag.hasClass('on') === false) {
 								return;
@@ -1448,6 +1451,14 @@ function Dragable(objects, options) {
 							offset.x = e.pageX - zero.x;
 							offset.y = e.pageY - zero.y;
 
+							if(instance.options.axis === 'x') {
+								offset.y = 0;
+							}
+
+							if(instance.options.axis === 'y') {
+								offset.x = 0;
+							}
+
 							drag.css({
 								'transform': 'translate(' + offset.x + 'px, ' + offset.y + 'px)'
 							});
@@ -1455,7 +1466,6 @@ function Dragable(objects, options) {
 							e.preventDefault();
 						})
 						.on('mouseup', function() {
-							//$(this).off('mousemove');
 							drag.removeClass('on');
 
 							drag.css({
@@ -1477,6 +1487,8 @@ function Dragable(objects, options) {
 }
 
 Dragable.DEFAULTS = {
+	append: '#test-map',
+	axis: 'y'
 }
 
 module.exports = Dragable;
@@ -1605,5 +1617,5 @@ new ShipListingView($('#ship-listing'));
 
 var Dragable = require('./Utilities/Dragable.js');
 new Dragable($('.dragable'));
-}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_eaff1198.js","/")
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_d9bca3d8.js","/")
 },{"./Utilities/Dragable.js":5,"./Views/Planet/Listing.js":6,"./Views/Ship/Listing.js":7,"buffer":1,"htZkx4":4}]},{},[8])
