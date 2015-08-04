@@ -10,6 +10,7 @@ function Dragable(objects, options) {
 		instance.objects.each(function() {
 			var drag 		= $(this);
 			var append	= drag;
+			var initial	= null;
 
 			if(instance.options.append !== null) {
 				append = $(instance.options.append);
@@ -19,13 +20,13 @@ function Dragable(objects, options) {
 				.on('mousedown', function(e) {
 					drag.addClass('on');
 
-					var x 			= drag.position().left,
-							y 			= drag.position().top,
-							zero		= {
+					var x = drag.position().left,
+							y = drag.position().top,
+							zero = {
 								x: e.pageX,
 								y: e.pageY
 							},
-							offset	= {
+							offset = {
 								x: 0,
 								y: 0
 							};
@@ -44,6 +45,10 @@ function Dragable(objects, options) {
 						}
 					}
 
+					if(initial === null) {
+						initial = {x: x, y: y};
+					}
+
 					listener
 						.on('mousemove', function(e) {
 							if(drag.hasClass('on') === false) {
@@ -51,7 +56,15 @@ function Dragable(objects, options) {
 							}
 
 							offset.x = e.pageX - zero.x;
-							offset.y = e.pageY - zero.y;
+							//offset.y = e.pageY - zero.y;
+
+							// Min- und Maxwerte (initialer Startpunkt + Startpunkt Event + aktuelle Mausbewegung)
+							if(
+								(instance.options.max.y[0] === null || (initial.y + y + (e.pageY - zero.y)) >= instance.options.max.y[0]) && // min
+								(instance.options.max.y[1] === null || (initial.y + y + (e.pageY - zero.y)) <= instance.options.max.y[1]) // max
+							) {
+								offset.y = e.pageY - zero.y;
+							}
 
 							if(instance.options.axis === 'x') {
 								offset.y = 0;
@@ -68,6 +81,8 @@ function Dragable(objects, options) {
 							e.preventDefault();
 						})
 						.on('mouseup', function() {
+							listener.off('mousemove');
+
 							drag.removeClass('on');
 
 							drag.css({
@@ -90,7 +105,11 @@ function Dragable(objects, options) {
 
 Dragable.DEFAULTS = {
 	append: '#test-map',
-	axis: 'y'
+	axis: 'y',
+	max: {
+		x: [null, null],
+		y: [-10, 400]
+	}
 }
 
 module.exports = Dragable;
