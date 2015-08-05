@@ -469,8 +469,8 @@ input[type='submit']:focus, button:focus, .button:focus {
 
 #drag-container {
   position: absolute;
-  top: 200px;
-  left: 100px; }
+  top: 100px;
+  left: 200px; }
 
 #test-map {
   position: absolute;
