@@ -6,6 +6,7 @@ function Dragable(objects, options) {
 
 	var instance 	= this;
 	var listener	= $('body');
+
 	var initialize = function() {
 		instance.objects.each(function() {
 			var drag 		= $(this);
@@ -49,57 +50,60 @@ function Dragable(objects, options) {
 						initial = {x: x, y: y};
 					}
 
-					listener
-						.on('mousemove', function(e) {
-							if(drag.hasClass('on') === false) {
-								return;
-							}
+					listener.on('mousemove', function(e) {
 
-							//offset.x = e.pageX - zero.x;
-							//offset.y = e.pageY - zero.y;
+						// Sicherheitsabfrage, dass nur ein Element bewegt wird
+						if(drag.hasClass('on') === false) {
+							return;
+						}
 
-							// Min- und Maxwerte (initialer Startpunkt + Startpunkt Event + aktuelle Mausbewegung)
-							// X
-							if(
-								(instance.options.max.x[0] === null || (initial.x + x + (e.pageX - zero.x)) >= instance.options.max.x[0]) && // min
-								(instance.options.max.x[1] === null || (initial.x + x + (e.pageX - zero.x)) <= instance.options.max.x[1]) // max
-							) {
-								offset.x = e.pageX - zero.x;
-							}
+						// Min- und Maxwerte (initialer Startpunkt + Startpunkt Event + aktuelle Mausbewegung)
+						// X
+						if(
+							(instance.options.max.x[0] === null || (initial.x + x + (e.pageX - zero.x)) >= instance.options.max.x[0]) && // min
+							(instance.options.max.x[1] === null || (initial.x + x + (e.pageX - zero.x)) <= instance.options.max.x[1]) // max
+						) {
+							offset.x = e.pageX - zero.x;
+						}
 
-							// Y
-							if(
-								(instance.options.max.y[0] === null || (initial.y + y + (e.pageY - zero.y)) >= instance.options.max.y[0]) && // min
-								(instance.options.max.y[1] === null || (initial.y + y + (e.pageY - zero.y)) <= instance.options.max.y[1]) // max
-							) {
-								offset.y = e.pageY - zero.y;
-							}
+						// Y
+						if(
+							(instance.options.max.y[0] === null || (initial.y + y + (e.pageY - zero.y)) >= instance.options.max.y[0]) && // min
+							(instance.options.max.y[1] === null || (initial.y + y + (e.pageY - zero.y)) <= instance.options.max.y[1]) // max
+						) {
+							offset.y = e.pageY - zero.y;
+						}
 
-							if(instance.options.axis === 'x') {
-								offset.y = 0;
-							}
+						// Achsen
+						if(instance.options.axis === 'x') {
+							offset.y = 0;
+						}
 
-							if(instance.options.axis === 'y') {
-								offset.x = 0;
-							}
+						if(instance.options.axis === 'y') {
+							offset.x = 0;
+						}
 
-							drag.css({
-								'transform': 'translate(' + offset.x + 'px, ' + offset.y + 'px)'
-							});
-
-							e.preventDefault();
-						})
-						.on('mouseup', function() {
-							listener.off('mousemove');
-
-							drag.removeClass('on');
-
-							drag.css({
-								'transform': 	'translate(0, 0)',
-								'top':				(y + offset.y),
-								'left':      	(x + offset.x)
-							});
+						drag.css({
+							'transform': 'translate(' + offset.x + 'px, ' + offset.y + 'px)'
 						});
+
+						e.preventDefault();
+					});
+
+					listener.parents().on('mouseup', function() {
+						listener.off('mousemove');
+
+						drag.removeClass('on');
+
+						// nach Abschluss Transform in Position umwandeln -> dann kann ueber Position() wieder top und left
+						// ausgelesen werden
+						drag.css({
+							'transform': 	'translate(0, 0)',
+							'top':				(y + offset.y),
+							'left':      	(x + offset.x)
+						});
+					});
+
 				})
 				.on('mouseup', function() {
 					$(this).removeClass('on');
@@ -110,15 +114,15 @@ function Dragable(objects, options) {
 	this.objects = $(objects);
 
 	initialize();
-}
+};
 
 Dragable.DEFAULTS = {
-	append: '#test-map',
-	axis: 'x',
+	append: null,
+	axis: 'both',
 	max: {
-		x: [0, 400],
+		x: [null, null],
 		y: [null, null]
 	}
-}
+};
 
 module.exports = Dragable;
