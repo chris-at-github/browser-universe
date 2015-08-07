@@ -1,10 +1,9 @@
-var PlanetListingView = require('./Views/Planet/Listing.js');
-new PlanetListingView($('#planet-listing'));
+//var PlanetListingView = require('./Views/Planet/Listing.js');
+//new PlanetListingView($('#planet-listing'));
+//
+//var ShipListingView = require('./Views/Ship/Listing.js');
+//new ShipListingView($('#ship-listing'));
+var Playground = require('./Playground.js');
 
-var ShipListingView = require('./Views/Ship/Listing.js');
-new ShipListingView($('#ship-listing'));
-
-//var Dragable = require('./Utilities/Dragable.js');
-//new Dragable($('.dragable'));
-
-$('.dragable').dragable()
+playground = new Playground();
+playground.dragable();
