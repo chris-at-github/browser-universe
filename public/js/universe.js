@@ -1415,6 +1415,19 @@ Playground.prototype.dragable = function() {
 	});
 };
 
+Playground.prototype.snap = function() {
+	var s 		= Snap("#snap");
+	var icon = s.polyline([200, 210, 220, 210, 210, 193, 200, 210]);
+			icon.attr({
+				'stroke':       'red',
+				'stroke-width': 1,
+				fill: 'transparent'
+			});
+	var ship = s.g();
+			ship.add(icon);
+	ship.animate({'transform': 'translate(-100, -100)'}, 1000);
+};
+
 module.exports = Playground;
 }).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/Playground.js","/")
 },{"./Utilities/Dragable.js":6,"buffer":1,"htZkx4":4}],6:[function(require,module,exports){
@@ -1553,6 +1566,6 @@ module.exports = Dragable;
 var Playground = require('./Playground.js');
 
 playground = new Playground();
-playground.dragable();
-}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_4821b27.js","/")
+playground.snap();
+}).call(this,require("htZkx4"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b3cb254f.js","/")
 },{"./Playground.js":5,"buffer":1,"htZkx4":4}]},{},[7])

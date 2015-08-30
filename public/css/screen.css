@@ -489,6 +489,11 @@ input[type='submit']:focus, button:focus, .button:focus {
   z-index: 5;
   background: url(../images/map-scale.png) repeat 1px 1px; }
 
+#snap {
+  width: 300px;
+  height: 300px;
+  border: 2px solid red; }
+
 #map {
   position: relative;
   background: #fff;

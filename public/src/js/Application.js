@@ -6,4 +6,4 @@
 var Playground = require('./Playground.js');
 
 playground = new Playground();
-playground.dragable();
+playground.snap();

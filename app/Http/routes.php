@@ -54,3 +54,7 @@ Route::get('/ship/deactivate/{id}', array(
 Route::get('/playground/dragable/', array(
 	'uses' => 'PlaygroundController@dragable'
 ));
+
+Route::get('/playground/snap/', array(
+	'uses' => 'PlaygroundController@snap'
+));
