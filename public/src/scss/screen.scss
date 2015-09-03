@@ -12,7 +12,6 @@
 
 body {
   margin: 10px;
-  background: #f8f8f8;
   font: normal normal 13px/1.4 $font-default;
 }
 
@@ -37,215 +36,228 @@ fieldset {
 	border: 1px solid $grey-lighter;
 }
 
-legend, header, strong, b {
+legend, header, strong, b, label {
 	font-weight: 500;
 }
 
-// ----------------------------------------------------------------------------------
-// Grid
-.row {
-  @include make-row;
-}
-
-@include make-grid-columns;
-@include make-grid(xs);
-@include make-grid(sm);
-
-// ----------------------------------------------------------------------------------
-// Forms
+//// ----------------------------------------------------------------------------------
+//// Grid
+//.row {
+//  @include make-row;
+//}
+//
+//@include make-grid-columns;
+//@include make-grid(xs);
+//@include make-grid(sm);
+//
+//// ----------------------------------------------------------------------------------
+//// Forms
 input[type='text'], textarea, select {
   & {
     width: 100%;
-    box-sizing: border-box;
-    border: 1px solid $grey-light;
     -webkit-appearance: none;
-  }
-
-  &:focus {
-    outline: 0;
-  }
-
-  &.disabled {
-    background: $grey-lighter;
+		margin: 0 0 10px 0;
   }
 }
-
-.form-item {
-  margin: 0 0 10px 0;
-}
-
-.form-item .form-item {
-  margin-bottom: 0;
-}
-
-.form-label {
-  display: block;
-}
-
-.form-field {
-  position: relative;
-}
-
-// ----------------------------------------------------------------------------------
-// Buttons
-input[type='submit'], button, .button {
-	& {
-		padding: 4px 8px;
-		border: 0;
-		background: $grey-lighter;
-		color: $grey-dark;
-		-webkit-appearance: none;
-	}
-
-	&:hover {
-		background: $grey;
-	}
-
-	&:focus {
-		outline: 0;
-	}
-}
-
-.button-large {
-	padding: 7px 20px;
-	font-size: 18px;
-}
-
-// ----------------------------------------------------------------------------------
-// Dl
-.dl-inline {
-	& {
-		@include clearfix;
-	}
-
-	dt {
-		float: left;
-		margin: 0 3px 0 0;
-	}
-
-	dd {
-		float: left;
-		margin: 0 15px 0 0;
-	}
-}
-
-// ----------------------------------------------------------------------------------
-// Actions
-.list-actions {
-	& {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		text-align: right;
-	}
-
-	li {
-		& {
-			display: inline-block;
-			margin: 0;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-
-		&:after {
-			height: 12px;
-			content: '';
-			display: inline-block;
-			margin: 0 5px 0 7px;
-			border-right: 1px solid $grey-lighter;
-		}
-
-		&:last-child:after {
-			display: none;
-		}
-	}
-}
-
-// ----------------------------------------------------------------------------------
-// Objects
-.list-object {
-	& {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	& > li {
-		& {
-			margin: 1px 0;
-			padding: 5px 0;
-			border-top: 1px solid $grey-lighter;
-		}
-
-		&:first-child {
-			padding-top: 0;
-			border: 0;
-		}
-
-		&:last-child {
-			padding-bottom: 0;
-		}
-	}
-
-	&.list-object-selectable {
-		& > li {
-			position: relative;
-			padding: 5px 0 5px 35px;
-		}
-
-		.list-object-selectable-checkbox {
-			position: absolute;
-			top: 1px; bottom: 0;
-			left: 0;
-			width: 25px;
-			padding: 5px 0 0 0;
-			background: $grey-lighter;
-			text-align: center;
-		}
-	}
-}
-
-// ----------------------------------------------------------------------------------
-// Dragable
-#drag-container {
-	position: absolute;
-	top: 100px;	left: 100px;
-	z-index: 10;
-	width: 300px;
-	height: 300px;
-	border: 3px solid $grey;
-	overflow: hidden;
-}
-
-.dragable {
-	& {
-		width: 600px;
-		height: 800px;
-		background: red;
-	}
-
-//	&.on {
-//		background: blue;
+//input[type='text'], textarea, select {
+//  & {
+//    width: 100%;
+//    border: 1px solid $grey-light;
+//    -webkit-appearance: none;
+//  }
+//
+//  &:focus {
+//    outline: 0;
+//  }
+//
+//  &.disabled {
+//    background: $grey-lighter;
+//  }
+//}
+//
+//.form-item {
+//  margin: 0 0 10px 0;
+//}
+//
+//.form-item .form-item {
+//  margin-bottom: 0;
+//}
+//
+//.form-label {
+//  display: block;
+//}
+//
+//.form-field {
+//  position: relative;
+//}
+//
+//// ----------------------------------------------------------------------------------
+//// Buttons
+//input[type='submit'], button, .button {
+//	& {
+//		padding: 4px 8px;
+//		border: 0;
+//		background: $grey-lighter;
+//		color: $grey-dark;
+//		-webkit-appearance: none;
 //	}
+//
+//	&:hover {
+//		background: $grey;
+//	}
+//
+//	&:focus {
+//		outline: 0;
+//	}
+//}
+//
+//.button-large {
+//	padding: 7px 20px;
+//	font-size: 18px;
+//}
+//
+//// ----------------------------------------------------------------------------------
+//// Dl
+//.dl-inline {
+//	& {
+//		@include clearfix;
+//	}
+//
+//	dt {
+//		float: left;
+//		margin: 0 3px 0 0;
+//	}
+//
+//	dd {
+//		float: left;
+//		margin: 0 15px 0 0;
+//	}
+//}
+//
+//// ----------------------------------------------------------------------------------
+//// Actions
+//.list-actions {
+//	& {
+//		margin: 0;
+//		padding: 0;
+//		list-style: none;
+//		text-align: right;
+//	}
+//
+//	li {
+//		& {
+//			display: inline-block;
+//			margin: 0;
+//		}
+//
+//		&:last-child {
+//			margin-right: 0;
+//		}
+//
+//		&:after {
+//			height: 12px;
+//			content: '';
+//			display: inline-block;
+//			margin: 0 5px 0 7px;
+//			border-right: 1px solid $grey-lighter;
+//		}
+//
+//		&:last-child:after {
+//			display: none;
+//		}
+//	}
+//}
+//
+//// ----------------------------------------------------------------------------------
+//// Objects
+//.list-object {
+//	& {
+//		margin: 0;
+//		padding: 0;
+//		list-style: none;
+//	}
+//
+//	& > li {
+//		& {
+//			margin: 1px 0;
+//			padding: 5px 0;
+//			border-top: 1px solid $grey-lighter;
+//		}
+//
+//		&:first-child {
+//			padding-top: 0;
+//			border: 0;
+//		}
+//
+//		&:last-child {
+//			padding-bottom: 0;
+//		}
+//	}
+//
+//	&.list-object-selectable {
+//		& > li {
+//			position: relative;
+//			padding: 5px 0 5px 35px;
+//		}
+//
+//		.list-object-selectable-checkbox {
+//			position: absolute;
+//			top: 1px; bottom: 0;
+//			left: 0;
+//			width: 25px;
+//			padding: 5px 0 0 0;
+//			background: $grey-lighter;
+//			text-align: center;
+//		}
+//	}
+//}
+//
+//// ----------------------------------------------------------------------------------
+//// Dragable
+//#drag-container {
+//	position: absolute;
+//	top: 100px;	left: 100px;
+//	z-index: 10;
+//	width: 300px;
+//	height: 300px;
+//	border: 3px solid $grey;
+//	overflow: hidden;
+//}
+//
+//.dragable {
+//	& {
+//		width: 600px;
+//		height: 800px;
+//		background: red;
+//	}
+//
+////	&.on {
+////		background: blue;
+////	}
+//
+//	&.first {
+//		position: absolute;
+//		top: 0; left: 0;
+//		z-index: 5;
+//		background: url(../images/map-scale.png) repeat 1px 1px;
+//	}
+//}
+//
+//// ----------------------------------------------------------------------------------
+//// Snap
+//#snap {
+//	width: 300px;
+//	height: 300px;
+//	border: 2px solid red;
+//}
+//
+//// ----------------------------------------------------------------------------------
+//// Map
+//@import '_map.scss';
 
-	&.first {
-		position: absolute;
-		top: 0; left: 0;
-		z-index: 5;
-		background: url(../images/map-scale.png) repeat 1px 1px;
+input[type='text'], textarea, select {
+	& {
+		border: 1px solid $grey;
+		margin: 0 0 15px 0;
 	}
 }
-
-// ----------------------------------------------------------------------------------
-// Snap
-#snap {
-	width: 300px;
-	height: 300px;
-	border: 2px solid red;
-}
-
-// ----------------------------------------------------------------------------------
-// Map
-@import '_map.scss';

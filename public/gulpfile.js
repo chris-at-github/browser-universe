@@ -57,7 +57,7 @@ gulp.task('styles', function() {
 		.pipe(plumber())
 		.pipe(sass())
 		.pipe(autoprefix('last 2 versions'))
-		// .pipe(minifyCSS())
+		.pipe(minifyCSS())
 		.pipe(gulp.dest('./css/'));
 });
 

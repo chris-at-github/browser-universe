@@ -1,15 +1,37 @@
-$grey-base: #000 !default;
-$grey-dark: #333;
-$grey-darker: #666 !default;
-$grey: #999 !default;
-$grey-lighter: #ccc !default;
-$grey-light: #fafafa !default;
+// ---------------------------------------------------------------------------------------------------------------------
+// Colors
+$grey-base: 		#000 !default;
+$grey-dark: 		#333;
+$grey-darker: 	#666 !default;
+$grey: 					#999 !default;
+$grey-lighter: 	#ccc !default;
+$grey-light: 		#fafafa !default;
 
-$white: #fff;
+$white: 	#fff;
 
-$font-default: 'Roboto', sans-serif;
+$red:			#f16651;
+$orange: 	#fab117;
+$blue: 		#5fc8d7;
+$navy: 		#02546e;
 
-$grid-columns: 12 !default;
+// ---------------------------------------------------------------------------------------------------------------------
+// Fonts
+$font-default: 				'Roboto', Arial, sans-serif;
+$font-default-color:	$grey-dark;
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Grid
+$grid-columns: 			12 !default;
 $grid-gutter-width: 20px !default;
+
+// ---------------------------------------------------------------------------------------------------------------------
+$border-radius-default:	2px;
+
+
+
+
+
+
+
 
 $map-grid-gutter: 10px;

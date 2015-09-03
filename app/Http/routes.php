@@ -16,14 +16,14 @@ Route::get('/', array(
 	'uses' => 'GameController@index'
 ));
 
-Route::get('/game/{id}', array(
-	'as'   => 'game.playground',
-	'uses' => 'GameController@playground'
-));
-
 Route::any('/game/create', array(
 	'as'   => 'game.create',
 	'uses' => 'GameController@create'
+));
+
+Route::get('/game/{id}', array(
+	'as'   => 'game.playground',
+	'uses' => 'GameController@playground'
 ));
 
 Route::get('/planet/activate/{id}', array(
